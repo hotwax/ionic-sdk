@@ -1,11 +1,14 @@
 <template>
-  <ion-app>
+  <ion-app id="app">
     <ion-router-outlet />
+    <ion-popover trigger="app" reference="event" trigger-action="context-menu">
+      <ion-content>Popover Content</ion-content>
+    </ion-popover>
   </ion-app>
 </template>
 
 <script lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import { IonApp, IonContent, IonPopover, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { loadingController, alertController } from '@ionic/vue';
 import { useStore } from "./store";
@@ -16,6 +19,8 @@ export default defineComponent({
   name: 'App',
   components: {
     IonApp,
+    IonContent,
+    IonPopover,
     IonRouterOutlet
   },
   data() {
