@@ -3,6 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Settings from "@/views/Settings.vue"
+import BarcodeQRcodeScanner from "@/views/BarcodeQRcodeScanner.vue"
 import store from '@/store'
 
 const authGuard = (to: any, from: any, next: any) => {
@@ -33,16 +34,20 @@ const routes: Array<RouteRecordRaw> = [
     beforeEnter: authGuard
   },
   {
+    path: "/settings",
+    name: "Settings",
+    component: Settings,
+    beforeEnter: authGuard
+  },  
+  {
     path: '/login',
     name: 'Login',
     component: Login,
     beforeEnter: loginGuard
   },
   {
-    path: "/settings",
-    name: "Settings",
-    component: Settings,
-    beforeEnter: authGuard
+    path: '/scanner',
+    component: BarcodeQRcodeScanner
   }
 ]
 
